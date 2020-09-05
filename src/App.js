@@ -6,9 +6,10 @@ import {
   Redirect
 } from "react-router-dom";
 import Home from "./pages/Home";
-import Chat from "./pages/Chat";
+// import Chat from "./pages/Chat";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import ProfilePage from "./pages/ProfilePage";
 import { auth } from "./services/firebase";
 import './styles.css';
 
@@ -37,7 +38,7 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
         authenticated === false ? (
           <Component {...props} />
         ) : (
-            <Redirect to="/chat" />
+            <Redirect to="/profile" />
           )
       }
     />
@@ -58,7 +59,7 @@ class App extends Component {
       if (user) {
         this.setState({
           authenticated: true,
-          loading: false
+          loading: false,
         });
       } else {
         this.setState({
@@ -79,9 +80,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <PrivateRoute
-              path="/chat"
+              path="/profile"
               authenticated={this.state.authenticated}
-              component={Chat}
+              component={ProfilePage}
             />
             <PublicRoute
               path="/signup"

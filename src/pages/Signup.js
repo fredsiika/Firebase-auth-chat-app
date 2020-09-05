@@ -25,6 +25,7 @@ export default class SignUp extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    
     this.setState({ error: '' });
     try {
       await signup(this.state.email, this.state.password);
@@ -56,7 +57,7 @@ export default class SignUp extends Component {
         <form className="mt-5 py-5 px-5" onSubmit={this.handleSubmit}>
           <h1>
             Sign Up to
-          <Link className="title ml-2" to="/">Chatty</Link>
+          <Link className="title ml-2" to="/">Yurdle</Link>
           </h1>
           <p className="lead">Fill in the form below to create an account.</p>
           <div className="form-group">

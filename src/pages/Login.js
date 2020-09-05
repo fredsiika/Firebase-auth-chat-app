@@ -24,6 +24,7 @@ export default class Login extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    
     this.setState({ error: "" });
     try {
       await signin(this.state.email, this.state.password);
@@ -59,7 +60,7 @@ export default class Login extends Component {
           <h1>
             Login to
             <Link className="title ml-2" to="/">
-              Chatty
+              Yurdle
             </Link>
           </h1>
           <p className="lead">
@@ -103,7 +104,6 @@ export default class Login extends Component {
             Don't have an account? <Link to="/signup">Sign up</Link>
           </p>
         </form>
-
       </div>
     );
   }
